@@ -24,7 +24,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         _ = makeSUT()
         
-        XCTAssertNil(client.requestedURLs[0])
+        XCTAssertTrue(client.requestedURLs.isEmpty)
     }
     
     func test_loadTwice_requestDataFromURLTwice() {
