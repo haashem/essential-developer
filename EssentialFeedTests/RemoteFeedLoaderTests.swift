@@ -31,10 +31,10 @@ class RemoteFeedLoaderTests: XCTestCase {
         let url = URL(string: "https://example.com")!
         let (sut, client) = makeSUT(url: url)
         
-        sut.load()
-        sut.load()
+        sut.load{_ in }
+        sut.load{_ in }
         
-        XCTAssertEqual(cLient.messages, [url, url])
+        XCTAssertEqual(client.requestedURLs, [url, url])
     }
     
     func test_load_deliversErrorOnClientError() {
