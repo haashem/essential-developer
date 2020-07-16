@@ -103,6 +103,27 @@ class URLSessionHTTPClientTest: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    func test_getFromURL_succeedsWithEmptyDataOnHTTPURLResponseWithNilData() {
+        let resposne = anyHTTPURLResponse()
+        
+        URLProtocolStub.stub(data: nil, response: resposne, error: nil)
+        
+        let exp = expectation(description: "wait for completion")
+        makeSUT().get(from: anyURL()) { result in
+            switch result {
+            case let .success(receivedData, receivedResponse):
+                XCTAssertEqual(receivedData, Data())
+                XCTAssertEqual(receivedResponse.url, resposne.url)
+                XCTAssertEqual(receivedResponse.statusCode, resposne.statusCode)
+            default:
+                XCTFail("Expected success, got \(result) instead")
+            }
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     // MARK: Helpers
     
     private func makeSUT(file: StaticString = #file, line: Int = #line) -> URLSessionHTTPClient {
