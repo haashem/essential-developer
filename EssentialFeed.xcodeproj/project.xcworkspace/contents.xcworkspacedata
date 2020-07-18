@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:EssentialDeveloper.xcodeproj">
+      location = "self:/Users/hashem/Desktop/Xcode_Projects/EssentiallFeed/EssentialFeed.xcodeproj">
    </FileRef>
 </Workspace>
