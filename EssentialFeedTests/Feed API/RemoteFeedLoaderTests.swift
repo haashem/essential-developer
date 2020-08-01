@@ -10,7 +10,7 @@ import XCTest
 @testable import EssentialFeed
 
 
-class RemoteFeedLoaderTests: XCTestCase {
+class LoadFromRemoteUseCaseTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
