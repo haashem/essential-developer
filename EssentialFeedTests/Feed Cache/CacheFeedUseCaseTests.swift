@@ -17,8 +17,9 @@ class LocalFeedLoader {
         self.currentDate = currentDate
     }
     
-    func save(_ items: [FeedItem]) {
+    func save(_ items: [FeedItem], completion: @escaping (Error?) -> Void) {
         store.deleteCachedFeed { [unowned self] error in
+            completion(error)
             if error == nil {
                 self.store.insert(items, timestamp: self.currentDate())
             }
@@ -70,7 +71,7 @@ class CacheFeedUseCaseTests: XCTestCase {
         let (sut, store) = makeSut()
         let items = [uniqueItem(), uniqueItem()]
         
-        sut.save(items)
+        sut.save(items) {_ in }
         XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed])
     }
     
@@ -78,7 +79,7 @@ class CacheFeedUseCaseTests: XCTestCase {
         let (sut, store) = makeSut()
         let items = [uniqueItem(), uniqueItem()]
         
-        sut.save(items)
+        sut.save(items) {_ in }
         let deletionError = anyNSError()
         store.completeDeletion(with: deletionError)
         XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed])
@@ -89,10 +90,28 @@ class CacheFeedUseCaseTests: XCTestCase {
         let (sut, store) = makeSut(currentDate: { timestamp })
         let items = [uniqueItem(), uniqueItem()]
         
-        sut.save(items)
+        sut.save(items) {_ in }
         store.completeDeletionSuccessfully()
         XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed, .insert(items, timestamp)])
     }
+    
+    func test_save_failsOnDeletionError() {
+        let (sut, store) = makeSut()
+        let items = [uniqueItem(), uniqueItem()]
+        
+        let exp = expectation(description: "wait for save completion")
+        sut.save(items) { error in
+            exp.fulfill()
+        }
+        
+        let deletionError = anyNSError()
+        store.completeDeletion(with: deletionError)
+        wait(for: [exp], timeout: 1.0)
+        
+        XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed])
+    }
+    
+    
     // MARK: - Helpers
     
     private func makeSut(currentDate: @escaping () -> Date = Date.init , file: StaticString = #file, line: Int = #line) -> (sut: LocalFeedLoader, store: FeedStore) {
