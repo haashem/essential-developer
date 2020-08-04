@@ -40,6 +40,17 @@ class LoadFromCacheUseCaseTest: XCTestCase {
         })
     }
     
+    func test_load_deliversCachedImagesLessThanSevenDaysOldCache() {
+        let fixedCurrentDate = Date()
+        let (sut, store) = makeSut(currentDate: {fixedCurrentDate})
+        let feed = uniqueImageFeed()
+        let lessThanSevenDaysOldTimestamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
+        
+        expect(sut, toCompleteWith: .success(feed.models), when: {
+            store.completeRetrieval(with: feed.local, timestamp: lessThanSevenDaysOldTimestamp)
+        })
+    }
+    
     private func expect(_ sut: LocalFeedLoader, toCompleteWith expectedResult: LocalFeedLoader.LoadResult, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         
         let exp = expectation(description: "wait for load completion")
@@ -90,4 +101,14 @@ class LoadFromCacheUseCaseTest: XCTestCase {
         return NSError(domain:"any error", code: 0, userInfo: nil)
     }
 
+}
+
+private extension Date {
+    func adding(days: Int) -> Date {
+        return Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
+    }
+    
+    func adding(seconds: TimeInterval) -> Date {
+        return self + seconds
+    }
 }
