@@ -11,6 +11,18 @@ import EssentialFeed
 
 class EssentialFeedCacheIntegrationTests: XCTestCase {
 
+    override func setUp() {
+        super.setUp()
+            
+        setupEmptyStoreState()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        undoStoreSideEffects()
+    }
+    
     func test_load_deliversNoItemOnEmptyCache() {
         let sut = makeSUT()
         
@@ -40,6 +52,18 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
+    
+    private func setupEmptyStoreState() {
+        deleteStoreArtifiacts()
+    }
+       
+   private func undoStoreSideEffects() {
+       deleteStoreArtifiacts()
+   }
+   
+   private func deleteStoreArtifiacts() {
+       try? FileManager.default.removeItem(at: testSpecificStoreURL())
+   }
     
     private func testSpecificStoreURL() -> URL {
         return cacheDirectory().appendingPathComponent("\(type(of: self)).store")
