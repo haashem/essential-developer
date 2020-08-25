@@ -8,11 +8,9 @@
 
 import Foundation
 
-public enum HTTPClientResult {
-    case success(Data, HTTPURLResponse)
-    case failure(Error)
-}
-
 public protocol HTTPClient {
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void)
+    typealias Result = Swift.Result<(Data, HTTPURLResponse), Error>
+    /// Completion handler can be invoked in any threads.
+    /// Clients are responsible to dispatch to appropriate threads, if needed.
+    func get(from url: URL, completion: @escaping (Result) -> Void)
 }
