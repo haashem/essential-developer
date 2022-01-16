@@ -13,6 +13,7 @@
 		1434E44D2794298900F8E333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1434E44C2794298900F8E333 /* Assets.xcassets */; };
 		1434E4502794298900F8E333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1434E44E2794298900F8E333 /* LaunchScreen.storyboard */; };
 		1434E45827943E6C00F8E333 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1434E45727943E6B00F8E333 /* FeedViewController.swift */; };
+		1434E45A279440CF00F8E333 /* FeedImageViewModel+Prototype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1434E459279440CF00F8E333 /* FeedImageViewModel+Prototype.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1434E44F2794298900F8E333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1434E4512794298900F8E333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1434E45727943E6B00F8E333 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		1434E459279440CF00F8E333 /* FeedImageViewModel+Prototype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedImageViewModel+Prototype.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				1434E4432794298700F8E333 /* AppDelegate.swift */,
 				1434E4452794298700F8E333 /* SceneDelegate.swift */,
 				1434E4492794298700F8E333 /* Main.storyboard */,
+				1434E459279440CF00F8E333 /* FeedImageViewModel+Prototype.swift */,
 				1434E45727943E6B00F8E333 /* FeedViewController.swift */,
 				1434E44C2794298900F8E333 /* Assets.xcassets */,
 				1434E44E2794298900F8E333 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1434E4442794298700F8E333 /* AppDelegate.swift in Sources */,
+				1434E45A279440CF00F8E333 /* FeedImageViewModel+Prototype.swift in Sources */,
 				1434E45827943E6C00F8E333 /* FeedViewController.swift in Sources */,
 				1434E4462794298700F8E333 /* SceneDelegate.swift in Sources */,
 			);
