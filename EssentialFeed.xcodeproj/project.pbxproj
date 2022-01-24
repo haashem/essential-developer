@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		147360B3279EFAB40021B43E /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147360B2279EFAB40021B43E /* UIImage+TestHelpers.swift */; };
 		14C9C608279719C900438559 /* EssentialFeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9C607279719C900438559 /* EssentialFeedViewControllerTests.swift */; };
 		14C9C61427971E0000438559 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9441663F241A1BB600A7EFD8 /* EssentialFeed.framework */; platformFilter = ios; };
 		14C9C61527971E0000438559 /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9441663F241A1BB600A7EFD8 /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -119,6 +120,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		147360B2279EFAB40021B43E /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		14C9C607279719C900438559 /* EssentialFeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedViewControllerTests.swift; sourceTree = "<group>"; };
 		14C9C61A2799D1F400438559 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		14C9C61C279C360600438559 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
@@ -239,6 +241,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		147360B1279EFA960021B43E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				147360B2279EFAB40021B43E /* UIImage+TestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		14C9C60927971CAD00438559 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +283,7 @@
 			children = (
 				94098E0E2519E63D00DC017F /* Info.plist */,
 				14C9C607279719C900438559 /* EssentialFeedViewControllerTests.swift */,
+				147360B1279EFA960021B43E /* Helpers */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
@@ -744,6 +755,7 @@
 			files = (
 				14C9C608279719C900438559 /* EssentialFeedViewControllerTests.swift in Sources */,
 				14C9C61927971EB000438559 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				147360B3279EFAB40021B43E /* UIImage+TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
