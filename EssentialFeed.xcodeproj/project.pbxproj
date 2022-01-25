@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		145F0E5827A033B400C7EBAB /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145F0E5727A033B400C7EBAB /* FeedImageDataLoader.swift */; };
+		145F0E5A27A0413500C7EBAB /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145F0E5927A0413500C7EBAB /* FeedRefreshViewController.swift */; };
 		147360B3279EFAB40021B43E /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147360B2279EFAB40021B43E /* UIImage+TestHelpers.swift */; };
 		147360B5279EFB650021B43E /* UIRefreshControls+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147360B4279EFB650021B43E /* UIRefreshControls+TestHelpers.swift */; };
 		147360B7279EFBA20021B43E /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147360B6279EFBA20021B43E /* UIButton+TestHelpers.swift */; };
@@ -129,6 +130,7 @@
 
 /* Begin PBXFileReference section */
 		145F0E5727A033B400C7EBAB /* FeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoader.swift; sourceTree = "<group>"; };
+		145F0E5927A0413500C7EBAB /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		147360B2279EFAB40021B43E /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		147360B4279EFB650021B43E /* UIRefreshControls+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControls+TestHelpers.swift"; sourceTree = "<group>"; };
 		147360B6279EFBA20021B43E /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				14C9C61A2799D1F400438559 /* FeedViewController.swift */,
+				145F0E5927A0413500C7EBAB /* FeedRefreshViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				145F0E5827A033B400C7EBAB /* FeedImageDataLoader.swift in Sources */,
+				145F0E5A27A0413500C7EBAB /* FeedRefreshViewController.swift in Sources */,
 				14C9C61F279D375300438559 /* UIView+Shimmering.swift in Sources */,
 				14C9C61B2799D1F400438559 /* FeedViewController.swift in Sources */,
 				14C9C61D279C360600438559 /* FeedImageCell.swift in Sources */,
