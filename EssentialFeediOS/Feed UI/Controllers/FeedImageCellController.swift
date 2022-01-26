@@ -9,7 +9,7 @@
 import UIKit
 import EssentialFeed
 
-final public class FeedImageCellController {
+final class FeedImageCellController {
     private var task: FeedImageDataLoaderTask?
     private let model: FeedImage
     private let imageLoader: FeedImageDataLoader
