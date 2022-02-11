@@ -139,20 +139,27 @@ private final class FeedLoaderPresentationAdapater: FeedViewControllerDelegate {
     
 }
 
-private final class MainQueueDispatchDecorater: FeedLoader {
-    private let decoratee: FeedLoader
-    init(decoratee: FeedLoader) {
+private final class MainQueueDispatchDecorater<T> {
+    private let decoratee: T
+    init(decoratee: T) {
         self.decoratee = decoratee
     }
     
+    func dispatch(completion: @escaping () -> Void) {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async {
+                completion()
+            }
+        }
+        completion()
+    }
+}
+
+extension MainQueueDispatchDecorater: FeedLoader where T == FeedLoader {
     func load(completion: @escaping (FeedLoader.Result) -> Void) {
-        decoratee.load { result in
-            if Thread.isMainThread {
+        decoratee.load { [weak self] result in
+            self?.dispatch {
                 completion(result)
-            } else {
-                DispatchQueue.main.async {
-                    completion(result)
-                }
             }
         }
     }
