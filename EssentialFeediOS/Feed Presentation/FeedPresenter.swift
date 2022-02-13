@@ -13,10 +13,6 @@ struct FeedLoadingViewModel {
     let isLoading: Bool
 }
 
-struct FeedErrorViewModel {
-    let message: String?
-}
-
 protocol FeedLoadingView {
     func display(_ viewModel: FeedLoadingViewModel)
 }
