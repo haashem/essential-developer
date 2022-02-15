@@ -1,0 +1,9 @@
+/* 
+  Feed.strings
+  EssentialFeed
+
+  Created by Hashem Abounajmi on 15/02/2022.
+  Copyright © 2022 Hashem Aboonajmi. All rights reserved.
+*/
+"FEED_VIEW_TITLE" = "Meu Feed";
+"FEED_VIEW_CONNECTION_ERROR" = "Não foi possível conectar com o servidor";
