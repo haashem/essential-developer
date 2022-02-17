@@ -30,6 +30,8 @@
 		14B5548427BC09CB00D39ABE /* FeedvViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5548327BC09CB00D39ABE /* FeedvViewModel.swift */; };
 		14B5548527BC0BEE00D39ABE /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC883D27B4E1B9009B12D9 /* FeedLocalizationTests.swift */; };
 		14B5548727BCB3F500D39ABE /* FeedImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5548627BCB3F500D39ABE /* FeedImagePresenterTests.swift */; };
+		14B5548927BE17C800D39ABE /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5548827BE17C800D39ABE /* FeedImagePresenter.swift */; };
+		14B5548B27BE17DF00D39ABE /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B5548A27BE17DF00D39ABE /* FeedImageViewModel.swift */; };
 		14C9C608279719C900438559 /* FeedUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9C607279719C900438559 /* FeedUIIntegrationTests.swift */; };
 		14C9C61427971E0000438559 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9441663F241A1BB600A7EFD8 /* EssentialFeed.framework */; platformFilter = ios; };
 		14C9C61527971E0000438559 /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9441663F241A1BB600A7EFD8 /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -176,6 +178,8 @@
 		14B5548127BC09AF00D39ABE /* FeedLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadingViewModel.swift; sourceTree = "<group>"; };
 		14B5548327BC09CB00D39ABE /* FeedvViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedvViewModel.swift; sourceTree = "<group>"; };
 		14B5548627BCB3F500D39ABE /* FeedImagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenterTests.swift; sourceTree = "<group>"; };
+		14B5548827BE17C800D39ABE /* FeedImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenter.swift; sourceTree = "<group>"; };
+		14B5548A27BE17DF00D39ABE /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
 		14C9C607279719C900438559 /* FeedUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIIntegrationTests.swift; sourceTree = "<group>"; };
 		14C9C61A2799D1F400438559 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		14C9C61C279C360600438559 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
@@ -424,6 +428,8 @@
 				14B5548327BC09CB00D39ABE /* FeedvViewModel.swift */,
 				14B5548127BC09AF00D39ABE /* FeedLoadingViewModel.swift */,
 				14B5546627BBF66C00D39ABE /* Feed.strings */,
+				14B5548827BE17C800D39ABE /* FeedImagePresenter.swift */,
+				14B5548A27BE17DF00D39ABE /* FeedImageViewModel.swift */,
 			);
 			path = "Feed Presentation";
 			sourceTree = "<group>";
@@ -987,6 +993,7 @@
 				94034D0B24D7F010008346C5 /* RemoteFeedItem.swift in Sources */,
 				14B5547C27BC078400D39ABE /* FeedPresenter.swift in Sources */,
 				9478644324DBF1AB003A940A /* FeedCachePolicy.swift in Sources */,
+				14B5548927BE17C800D39ABE /* FeedImagePresenter.swift in Sources */,
 				94340176241CE1A300DECD39 /* FeedItemMapper.swift in Sources */,
 				14B5548227BC09AF00D39ABE /* FeedLoadingViewModel.swift in Sources */,
 				94A588AF24F3AA2800E7C68A /* FeedStore.xcdatamodeld in Sources */,
@@ -999,6 +1006,7 @@
 				94416658241A1BE800A7EFD8 /* FeedImage.swift in Sources */,
 				94A588B724F3B84300E7C68A /* ManagedCache.swift in Sources */,
 				14B5548027BC099A00D39ABE /* FeedErrorViewModel.swift in Sources */,
+				14B5548B27BE17DF00D39ABE /* FeedImageViewModel.swift in Sources */,
 				94A588AC24F3A8BB00E7C68A /* CoreDataFeedStore.swift in Sources */,
 				14B5548427BC09CB00D39ABE /* FeedvViewModel.swift in Sources */,
 				94A588B924F3B86A00E7C68A /* ManagedFeedImage.swift in Sources */,
