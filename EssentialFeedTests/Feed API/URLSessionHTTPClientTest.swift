@@ -12,23 +12,19 @@ import EssentialFeed
 class URLSessionHTTPClientTest: XCTestCase {
     
     
-    override func setUp() {
-        super.setUp()
-        URLProtocolStub.startInterceptingRequests()
+
+    override func tearDown() {
+        super.tearDown()
+        URLProtocolStub.removeStub()
     }
     
-    override func tearDown() {
-        URLProtocolStub.stopInterceptingRequests()
-        
-        super.tearDown()
-    }
     func test_getFromURL_performsGETRequestWithURL() {
         
         let url = anyURL()
         
         let exp = expectation(description: "wait for the request")
         
-        URLProtocolStub.observeRequest { request in
+        URLProtocolStub.observeRequests { request in
             XCTAssertEqual(request.url, url)
             XCTAssertEqual(request.httpMethod, "GET")
             exp.fulfill()
@@ -89,7 +85,11 @@ class URLSessionHTTPClientTest: XCTestCase {
     // MARK: Helpers
     
     private func makeSUT(file: StaticString = #file, line: Int = #line) -> HTTPClient {
-        let sut = URLSessionHTTPClient()
+        
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: configuration)
+        let sut = URLSessionHTTPClient(session: session)
         trackForMemoryLeaks(sut)
         return sut
     }
@@ -148,30 +148,31 @@ class URLSessionHTTPClientTest: XCTestCase {
     }
     
     private class URLProtocolStub: URLProtocol {
-        private static var stub: Stub?
-        private static var requestObserver: ((URLRequest) -> Void)?
         private struct Stub {
             let data: Data?
             let response: URLResponse?
             let error: Error?
+            let requestObserver: ((URLRequest) -> Void)?
         }
         
+        private static var _stub: Stub?
+        private static var stub: Stub? {
+            get { return queue.sync { _stub } }
+            set { queue.sync { _stub = newValue } }
+        }
+
+        private static let queue = DispatchQueue(label: "URLProtocolStub.queue")
+
         static func stub(data: Data?, response: URLResponse?, error: Error?) {
-            stub = Stub(data: data, response: response, error: error);
+            stub = Stub(data: data, response: response, error: error, requestObserver: nil)
         }
         
-        static func observeRequest(observer: @escaping (URLRequest) -> Void) {
-            requestObserver = observer
+        static func observeRequests(observer: @escaping (URLRequest) -> Void) {
+            stub = Stub(data: nil, response: nil, error: nil, requestObserver: observer)
         }
         
-        static func startInterceptingRequests() {
-            URLProtocol.registerClass(URLProtocolStub.self)
-        }
-        
-        static func stopInterceptingRequests() {
-            URLProtocol.unregisterClass(URLProtocolStub.self)
+        static func removeStub() {
             stub = nil
-            requestObserver = nil
         }
         
         override class func canInit(with request: URLRequest) -> Bool {
@@ -183,10 +184,7 @@ class URLSessionHTTPClientTest: XCTestCase {
         }
         
         override func startLoading() {
-            if let requestObserver = URLProtocolStub.requestObserver {
-                client?.urlProtocolDidFinishLoading(self)
-                return requestObserver(request)
-            }
+           
             guard let stub = URLProtocolStub.stub else { return }
             if let data = stub.data {
                 client?.urlProtocol(self, didLoad: data)
@@ -198,8 +196,11 @@ class URLSessionHTTPClientTest: XCTestCase {
             
             if let error = stub.error {
                 client?.urlProtocol(self, didFailWithError: error)
+            } else {
+                client?.urlProtocolDidFinishLoading(self)
             }
-            client?.urlProtocolDidFinishLoading(self)
+            
+            stub.requestObserver?(request)
         }
         
         override func stopLoading() {}
