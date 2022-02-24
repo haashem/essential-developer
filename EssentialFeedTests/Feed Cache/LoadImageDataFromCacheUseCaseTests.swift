@@ -16,16 +16,6 @@ class LocalFeedImageDataLoaderTest: XCTestCase {
         XCTAssertTrue(store.receivedMessages.isEmpty)
     }
     
-    func test_saveImageDataForURL_requestsImageDataInsertionForURL() {
-        let (sut, store) = makeSUT()
-        let imageData = anyData()
-        let url = anyURL()
-        
-        sut.save(data: imageData, for: url){ _ in }
-        
-        XCTAssertEqual(store.receivedMessages, [.insert(imageData, for: url)])
-    }
-    
     func test_loadImageDataFromURL_requestsStoredDataForURL() {
         let (sut, store) = makeSUT()
         let url = anyURL()
@@ -72,7 +62,7 @@ class LocalFeedImageDataLoaderTest: XCTestCase {
     }
     
     func test_loadImageDataFromURL_doesntDeliverResultAfterSUTInstanceHasBeenDeallocated() {
-        let store = StoreSpy()
+        let store = FeedImageDataStoreSpy()
         var sut: LocalFeedImageDataLoader? = LocalFeedImageDataLoader(store: store)
         
         var received = [FeedImageDataLoader.Result]()
@@ -108,8 +98,8 @@ class LocalFeedImageDataLoaderTest: XCTestCase {
         })
     }
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (LocalFeedImageDataLoader, StoreSpy) {
-        let store = StoreSpy()
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (LocalFeedImageDataLoader, FeedImageDataStoreSpy) {
+        let store = FeedImageDataStoreSpy()
         let sut = LocalFeedImageDataLoader(store: store)
         
         trackForMemoryLeaks(store)
