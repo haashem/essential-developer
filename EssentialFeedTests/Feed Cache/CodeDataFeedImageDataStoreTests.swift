@@ -13,7 +13,7 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
 
     func test_retrieveImageData_deliversNotFoundWhenEmpty() {
         let sut = makeSUT()
-        expect(sut: sut, toCompleteWith: notFound(), for: anyURL())
+        expect(sut, toCompleteRetrievalWith: notFound(), for: anyURL())
     }
     
     func test_retrieveImageData_deliversNotFoundWhenStoredDataURLDoesNotMatch() {
@@ -23,9 +23,19 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
         let nonMatchingURL = URL(string: "http://another-url.com")!
         
         insert(anyData(), for: url, into: sut)
-        expect(sut: sut, toCompleteWith: notFound(), for: nonMatchingURL)
+        expect(sut, toCompleteRetrievalWith: notFound(), for: nonMatchingURL)
     }
     
+    func test_retrieveImageData_deliversFoundDataWhenThereIsAStoredImageDataMatchingURL() {
+        let sut = makeSUT()
+        let storedData = anyData()
+        let matchingURL = URL(string: "http://a-url.com")!
+        
+        insert(storedData, for: matchingURL, into: sut)
+        
+        expect(sut, toCompleteRetrievalWith: found(storedData), for: matchingURL)
+    }
+
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CoreDataFeedStore {
@@ -40,12 +50,17 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
     private func notFound() -> FeedImageDataStore.RetrievalResult {
         return .success(.none)
     }
+    
+    
+    private func found(_ data: Data) -> FeedImageDataStore.RetrievalResult {
+        return .success(data)
+    }
         
     private func localImage(url: URL) -> LocalFeedImage {
         return LocalFeedImage(id: UUID(), description: "any", location: "any", url: url)
     }
 
-    private func expect(sut: CoreDataFeedStore, toCompleteWith expectedResult: FeedImageDataStore.RetrievalResult, for url: URL, file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: CoreDataFeedStore, toCompleteRetrievalWith expectedResult: FeedImageDataStore.RetrievalResult, for url: URL, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
         sut.retrieve(dataForURL: url) { receivedResult in
             switch (receivedResult, expectedResult) {
