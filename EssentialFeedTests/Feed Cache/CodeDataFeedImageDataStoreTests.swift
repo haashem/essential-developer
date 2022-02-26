@@ -79,7 +79,7 @@ class CoreDataFeedImageDataStoreTests: XCTestCase {
         return .success(.none)
     }
     
-    
+
     private func found(_ data: Data) -> FeedImageDataStore.RetrievalResult {
         return .success(data)
     }
