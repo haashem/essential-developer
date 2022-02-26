@@ -24,7 +24,7 @@ class FeedImageDataStoreSpy: FeedImageDataStore {
         retrievalCompletions.append(completion)
     }
     
-    func insert(data: Data, for url: URL, completion: @escaping (InsertionResult) -> Void) {
+    func insert(_ data: Data, for url: URL, completion: @escaping (InsertionResult) -> Void) {
         receivedMessages.append(.insert(data, for: url))
         insertionCompletions.append(completion)
     }
