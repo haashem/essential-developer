@@ -178,6 +178,7 @@
 		147360C3279EFDB30021B43E /* FeedViewControllerTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+LoaderSpy.swift"; sourceTree = "<group>"; };
 		147360C5279EFEFF0021B43E /* FeedViewControllerTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Assertions.swift"; sourceTree = "<group>"; };
 		149B0B9C27C8ABF60094C81C /* CodeDataFeedImageDataStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeDataFeedImageDataStoreTests.swift; sourceTree = "<group>"; };
+		149B0B9E27CA08040094C81C /* FeedStore 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FeedStore 2.xcdatamodel"; sourceTree = "<group>"; };
 		149D2D6327C6918F000E8507 /* LocalFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		149D2D6527C691E7000E8507 /* FeedImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataStore.swift; sourceTree = "<group>"; };
 		149D2D6727C746B4000E8507 /* FeedImageDataStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataStoreSpy.swift; sourceTree = "<group>"; };
@@ -1678,9 +1679,10 @@
 		94A588AD24F3AA2800E7C68A /* FeedStore.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				149B0B9E27CA08040094C81C /* FeedStore 2.xcdatamodel */,
 				94A588AE24F3AA2800E7C68A /* FeedStore.xcdatamodel */,
 			);
-			currentVersion = 94A588AE24F3AA2800E7C68A /* FeedStore.xcdatamodel */;
+			currentVersion = 149B0B9E27CA08040094C81C /* FeedStore 2.xcdatamodel */;
 			path = FeedStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
