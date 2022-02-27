@@ -1,9 +1,8 @@
 //
 //  ViewController.swift
-//  EssentialDeveloper
+//  EssentialApp
 //
-//  Created by Hashem Aboonajmi on 3/11/20.
-//  Copyright © 2020 Hashem Aboonajmi. All rights reserved.
+//  Created by Hashem Abounajmi on 27/02/2022.
 //
 
 import UIKit
