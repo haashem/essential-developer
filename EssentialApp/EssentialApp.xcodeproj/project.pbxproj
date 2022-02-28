@@ -17,7 +17,8 @@
 		1423ABE127CB8505008D0B45 /* EssentialFeed.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1423ABDE27CB8505008D0B45 /* EssentialFeed.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1423ABE227CB8505008D0B45 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1423ABDF27CB8505008D0B45 /* EssentialFeediOS.framework */; };
 		1423ABE327CB8505008D0B45 /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1423ABDF27CB8505008D0B45 /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1423ABE627CBB8C4008D0B45 /* RemoteWithLocalFallbackFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1423ABE527CBB8C4008D0B45 /* RemoteWithLocalFallbackFeedLoaderTests.swift */; };
+		1423ABE627CBB8C4008D0B45 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1423ABE527CBB8C4008D0B45 /* FeedLoaderWithFallbackCompositeTests.swift */; };
+		1423ABE827CD2C3D008D0B45 /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1423ABE727CD2C3D008D0B45 /* FeedLoaderWithFallbackComposite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +58,8 @@
 		1423ABB827CB8179008D0B45 /* EssentialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1423ABDE27CB8505008D0B45 /* EssentialFeed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1423ABDF27CB8505008D0B45 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1423ABE527CBB8C4008D0B45 /* RemoteWithLocalFallbackFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteWithLocalFallbackFeedLoaderTests.swift; sourceTree = "<group>"; };
+		1423ABE527CBB8C4008D0B45 /* FeedLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
+		1423ABE727CD2C3D008D0B45 /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				1423ABA527CB8177008D0B45 /* AppDelegate.swift */,
 				1423ABA727CB8177008D0B45 /* SceneDelegate.swift */,
 				1423ABA927CB8177008D0B45 /* ViewController.swift */,
+				1423ABE727CD2C3D008D0B45 /* FeedLoaderWithFallbackComposite.swift */,
 				1423ABAB27CB8177008D0B45 /* Main.storyboard */,
 				1423ABAE27CB8179008D0B45 /* Assets.xcassets */,
 				1423ABB027CB8179008D0B45 /* LaunchScreen.storyboard */,
@@ -116,7 +119,7 @@
 		1423ABBB27CB8179008D0B45 /* EssentialAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				1423ABE527CBB8C4008D0B45 /* RemoteWithLocalFallbackFeedLoaderTests.swift */,
+				1423ABE527CBB8C4008D0B45 /* FeedLoaderWithFallbackCompositeTests.swift */,
 			);
 			path = EssentialAppTests;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				1423ABAA27CB8177008D0B45 /* ViewController.swift in Sources */,
 				1423ABA627CB8177008D0B45 /* AppDelegate.swift in Sources */,
+				1423ABE827CD2C3D008D0B45 /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				1423ABA827CB8177008D0B45 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,7 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1423ABE627CBB8C4008D0B45 /* RemoteWithLocalFallbackFeedLoaderTests.swift in Sources */,
+				1423ABE627CBB8C4008D0B45 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
