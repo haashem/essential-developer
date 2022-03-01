@@ -10,8 +10,11 @@ import EssentialFeed
 
 class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
     
-    private class Task: FeedImageDataLoaderTask {
-        func cancel() {}
+    private class TaskWrapper: FeedImageDataLoaderTask {
+        var wrapped: FeedImageDataLoaderTask?
+        func cancel() {
+            wrapped?.cancel()
+        }
     }
     
     private let primary: FeedImageDataLoader
@@ -23,16 +26,19 @@ class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
     }
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
-        return primary.loadImageData(from: url) { [weak self] result in
+        let task = TaskWrapper()
+        task.wrapped = primary.loadImageData(from: url) { [weak self] result in
             switch (result) {
             case .success:
                 break
             case .failure:
-                _ = self?.fallback.loadImageData(from: url){ _ in }
+                task.wrapped = self?.fallback.loadImageData(from: url){ _ in }
             }
         }
+        return task
     }
 }
+
 class FeedImageLoaderWithFallbackCompositeTests: XCTestCase {
     
     func test_init_doesNotLoadImageData() {
@@ -72,6 +78,18 @@ class FeedImageLoaderWithFallbackCompositeTests: XCTestCase {
         
         XCTAssertEqual(primaryLoader.cancelledURLs, [url], "Expected to cancel URL loading from primary loader")
         XCTAssertTrue(fallbackLoader.cancelledURLs.isEmpty, "Expected no cancelled URLs in the fallback loader")
+    }
+    
+    func test_cancelLoadImageData_cancelsFallbackLoaderTaskAfterPrimaryLoaderFailure() {
+        let url = anyURL()
+        let (sut, primaryLoader, fallbackLoader) = makeSUT()
+       
+        let task = sut.loadImageData(from: url) { _ in }
+        primaryLoader.complete(with: anyNSError())
+        task.cancel()
+        
+        XCTAssertTrue(primaryLoader.cancelledURLs.isEmpty, "Expected no cancelled URLs in  primary loader")
+        XCTAssertEqual(fallbackLoader.cancelledURLs, [url], "Expected to cancel URL loading in the fallback loader")
     }
     
     // MARK: - Helper
