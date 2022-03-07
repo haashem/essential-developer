@@ -6,8 +6,8 @@
 //  Copyright © 2022 Hashem Aboonajmi. All rights reserved.
 //
 
-import Foundation
 import EssentialFeed
+import EssentialFeediOS
 
 final class FeedImageDataLoaderPresentationAdapter<View: FeedImageView, Image>: FeedImageCellControllerDelegate where View.Image == Image {
     

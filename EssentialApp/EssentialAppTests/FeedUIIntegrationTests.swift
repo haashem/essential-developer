@@ -6,11 +6,11 @@
 //  Copyright © 2022 Hashem Aboonajmi. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import XCTest
 import EssentialFeed
 import EssentialFeediOS
+import EssentialApp
 
 final class FeedUIIntegrationTests: XCTestCase {
     

@@ -6,8 +6,8 @@
 //  Copyright © 2022 Hashem Aboonajmi. All rights reserved.
 //
 
-import Foundation
 import EssentialFeed
+import EssentialFeediOS
 
 final class FeedLoaderPresentationAdapater: FeedViewControllerDelegate {
     private let feedLoader: FeedLoader
