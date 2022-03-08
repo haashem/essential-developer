@@ -44,6 +44,10 @@ extension FeedViewController {
         ds?.tableView?(tableView, cancelPrefetchingForRowsAt: [index])
     }
     
+    func renderedFeedImageData(at index: Int = 0) -> Data? {
+        return simulateFeedImageViewNotVisible(at: 0)?.renderedImage
+    }
+    
     var errorMessage: String? {
             return errorView?.message
     }
