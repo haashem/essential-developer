@@ -12,41 +12,6 @@ import EssentialFeed
 
 class LoadFromRemoteUseCaseTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func test_init_doesntRequestURL() {
-        let client = HTTPClientSpy()
-        _ = makeSUT()
-        
-        XCTAssertTrue(client.messages.isEmpty)
-    }
-    
-    func test_loadTwice_requestDataFromURLTwice() {
-        let url = URL(string: "https://example.com")!
-        let (sut, client) = makeSUT(url: url)
-        
-        sut.load{_ in }
-        sut.load{_ in }
-        
-        XCTAssertEqual(client.requestedURLs, [url, url])
-    }
-    
-    func test_load_deliversErrorOnClientError() {
-        let (sut, client) = makeSUT()
-        let givenError = NSError(domain: "test", code: 0, userInfo: nil)
-        
-        expect(sut, toCompleteWithResult:
-            failure(.connectivity), when: {
-            client.complete(with: givenError)
-        })
-    }
-    
     func test_load_deliversErrorOnNon200HTTPResponse() {
         
         let (sut, client) = makeSUT()
@@ -101,23 +66,6 @@ class LoadFromRemoteUseCaseTests: XCTestCase {
             client.complete(withStatusCode: 200, data: itemsJSON)
         })
         
-    }
-    
-    func test_load_doesNotDeliverResultAfterSUTinstanceHasBeenDeallocated() {
-        let url = URL(string: "http://example.com")!
-        let client = HTTPClientSpy()
-        var sut: RemoteFeedLoader? = RemoteFeedLoader(url: url, client: client)
-        
-        // when
-        var capturedResults = [RemoteFeedLoader.Result]()
-        
-        sut?.load {
-            capturedResults.append($0)
-        }
-        sut = nil
-        client.complete(withStatusCode: 200, data: makeItemJSON([]))
-        
-        XCTAssertTrue(capturedResults.isEmpty)
     }
     
     // MARK: Helper
