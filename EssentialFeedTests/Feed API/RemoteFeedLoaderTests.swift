@@ -65,7 +65,6 @@ class LoadFromRemoteUseCaseTests: XCTestCase {
         expect(sut, toCompleteWithResult: .success([item1.model, item2.model]), when: {
             client.complete(withStatusCode: 200, data: itemsJSON)
         })
-        
     }
     
     // MARK: Helper
