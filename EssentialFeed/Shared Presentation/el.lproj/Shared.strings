@@ -1,0 +1,8 @@
+/* 
+  Shared.strings
+  EssentialFeed
+
+  Created by Hashem Abounajmi on 11/05/2022.
+  Copyright © 2022 Hashem Aboonajmi. All rights reserved.
+*/
+"GENERIC_CONNECTION_ERROR" = "Δεν ήταν δυνατή η σύνδεση στο διακομιστή";
