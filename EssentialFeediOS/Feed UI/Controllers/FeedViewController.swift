@@ -20,7 +20,7 @@ final public class FeedViewController: UITableViewController, UITableViewDataSou
     
     private var loadingControllers = [IndexPath: FeedImageCellController]()
     
-    var tableModel = [FeedImageCellController]() {
+    private var tableModel = [FeedImageCellController]() {
         didSet { tableView.reloadData() }
     }
     
