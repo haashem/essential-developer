@@ -47,6 +47,9 @@
 		14C9C61D279C360600438559 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9C61C279C360600438559 /* FeedImageCell.swift */; };
 		14C9C61F279D375300438559 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C9C61E279D375300438559 /* UIView+Shimmering.swift */; };
 		14D20054282C17AC00B9AB79 /* ResourceErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D20053282C17AC00B9AB79 /* ResourceErrorView.swift */; };
+		14DAC920283239E3008D63F2 /* ImageCommentsPresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAC91F283239E3008D63F2 /* ImageCommentsPresentationTests.swift */; };
+		14DAC92328323B98008D63F2 /* ImageCommentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DAC92228323B98008D63F2 /* ImageCommentsPresenter.swift */; };
+		14DAC92528323C2F008D63F2 /* ImageComments.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14DAC92428323C2F008D63F2 /* ImageComments.strings */; };
 		14E3131D27DFC174000AFDB5 /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E3131C27DFC174000AFDB5 /* UIImage+TestHelpers.swift */; };
 		14E3131F27E0D3BC000AFDB5 /* UITableView+HeaderSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E3131E27E0D3BC000AFDB5 /* UITableView+HeaderSizing.swift */; };
 		14F567A2282B72120095BB88 /* LoadResourcePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F567A1282B72120095BB88 /* LoadResourcePresenterTests.swift */; };
@@ -193,6 +196,9 @@
 		14C9C61C279C360600438559 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		14C9C61E279D375300438559 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
 		14D20053282C17AC00B9AB79 /* ResourceErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorView.swift; sourceTree = "<group>"; };
+		14DAC91F283239E3008D63F2 /* ImageCommentsPresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsPresentationTests.swift; sourceTree = "<group>"; };
+		14DAC92228323B98008D63F2 /* ImageCommentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsPresenter.swift; sourceTree = "<group>"; };
+		14DAC92428323C2F008D63F2 /* ImageComments.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = ImageComments.strings; sourceTree = "<group>"; };
 		14E3131C27DFC174000AFDB5 /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		14E3131E27E0D3BC000AFDB5 /* UITableView+HeaderSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+HeaderSizing.swift"; sourceTree = "<group>"; };
 		14F567A1282B72120095BB88 /* LoadResourcePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResourcePresenterTests.swift; sourceTree = "<group>"; };
@@ -457,6 +463,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		14DAC91E283239B0008D63F2 /* Image Comments Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				14DAC92228323B98008D63F2 /* ImageCommentsPresenter.swift */,
+				14DAC92428323C2F008D63F2 /* ImageComments.strings */,
+			);
+			path = "Image Comments Presentation";
+			sourceTree = "<group>";
+		};
+		14DAC92128323AED008D63F2 /* Image Comments Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				14DAC91F283239E3008D63F2 /* ImageCommentsPresentationTests.swift */,
+			);
+			path = "Image Comments Presentation";
+			sourceTree = "<group>";
+		};
 		14E3131B27DFC150000AFDB5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +598,7 @@
 				1468AB3427F0E5F40033DBF4 /* Shared API Infra */,
 				1468AB3327F0E5DE0033DBF4 /* Shared API */,
 				1468AB3027F0C6AF0033DBF4 /* Image Comments Feature */,
+				14DAC91E283239B0008D63F2 /* Image Comments Presentation */,
 				14B5547A27BC077400D39ABE /* Feed Presentation */,
 				94034D0424D7CEAC008346C5 /* Feed Cache */,
 				94340170241A6DA800DECD39 /* FeedAPI */,
@@ -591,6 +615,7 @@
 				1468AB3727F0E6760033DBF4 /* Shared API Infra */,
 				1468AB3527F0E6500033DBF4 /* Shared API */,
 				1468AB3927F16A470033DBF4 /* Image Comments API */,
+				14DAC92128323AED008D63F2 /* Image Comments Presentation */,
 				1416C42527B91DB9005C93A1 /* Feed Presentation */,
 				949D701524C01E3000BFD322 /* Helper */,
 				94E6DA2D24D675F80098EF99 /* Feed Cache */,
@@ -948,6 +973,7 @@
 			files = (
 				14B5547E27BC094C00D39ABE /* Feed.strings in Resources */,
 				14F567AA282BF71B0095BB88 /* Shared.strings in Resources */,
+				14DAC92528323C2F008D63F2 /* ImageComments.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1042,6 +1068,7 @@
 				14670ADC27D35EF5002F9C3B /* FeedImageDataCache.swift in Sources */,
 				14F567B2282C0D820095BB88 /* ResourceLoadingView.swift in Sources */,
 				94A588AC24F3A8BB00E7C68A /* CoreDataFeedStore.swift in Sources */,
+				14DAC92328323B98008D63F2 /* ImageCommentsPresenter.swift in Sources */,
 				14B5549527C3476200D39ABE /* HTTPURLResponse+StatusCode.swift in Sources */,
 				149D2D6427C6918F000E8507 /* LocalFeedImageDataLoader.swift in Sources */,
 				14B5548427BC09CB00D39ABE /* FeedvViewModel.swift in Sources */,
@@ -1078,6 +1105,7 @@
 				149D2D6827C746B4000E8507 /* FeedImageDataStoreSpy.swift in Sources */,
 				94E6DA2F24D676510098EF99 /* CacheFeedUseCaseTests.swift in Sources */,
 				949C698D24E2A8CB0043A32A /* FeedStoreSpecs.swift in Sources */,
+				14DAC920283239E3008D63F2 /* ImageCommentsPresentationTests.swift in Sources */,
 				949D701724C01E4E00BFD322 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				94A588AA24F3A6F700E7C68A /* CoreDataFeedStoreTests.swift in Sources */,
 				14B5549127C27F9C00D39ABE /* HTTPClientSpy.swift in Sources */,
