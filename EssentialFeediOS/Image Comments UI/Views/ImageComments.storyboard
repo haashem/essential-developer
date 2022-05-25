@@ -21,7 +21,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ri-dZ-rlV">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                    <rect key="frame" x="8" y="8" width="398" height="18"/>
                                     <gestureRecognizers/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,10 +33,10 @@
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="6ri-dZ-rlV" secondAttribute="trailing" id="1RQ-21-UMO"/>
-                                <constraint firstItem="6ri-dZ-rlV" firstAttribute="top" secondItem="Rjg-N3-cnA" secondAttribute="top" id="3gN-eb-TRG"/>
-                                <constraint firstAttribute="bottom" secondItem="6ri-dZ-rlV" secondAttribute="bottom" id="vNK-8f-P4I"/>
-                                <constraint firstItem="6ri-dZ-rlV" firstAttribute="leading" secondItem="Rjg-N3-cnA" secondAttribute="leading" id="y11-TH-goY"/>
+                                <constraint firstAttribute="trailing" secondItem="6ri-dZ-rlV" secondAttribute="trailing" constant="8" id="1RQ-21-UMO"/>
+                                <constraint firstItem="6ri-dZ-rlV" firstAttribute="top" secondItem="Rjg-N3-cnA" secondAttribute="top" constant="8" id="3gN-eb-TRG"/>
+                                <constraint firstAttribute="bottom" secondItem="6ri-dZ-rlV" secondAttribute="bottom" constant="8" id="vNK-8f-P4I"/>
+                                <constraint firstItem="6ri-dZ-rlV" firstAttribute="leading" secondItem="Rjg-N3-cnA" secondAttribute="leading" constant="8" id="y11-TH-goY"/>
                             </constraints>
                             <connections>
                                 <outlet property="label" destination="6ri-dZ-rlV" id="YUR-uj-OgZ"/>
