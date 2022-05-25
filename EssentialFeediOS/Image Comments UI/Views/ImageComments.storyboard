@@ -16,40 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="Rjg-N3-cnA" customClass="ErrorView" customModule="EssentialFeediOS" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ri-dZ-rlV">
-                                    <rect key="frame" x="8" y="8" width="398" height="18"/>
-                                    <gestureRecognizers/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="Gje-YR-NAf" appends="YES" id="hAj-cG-qVh"/>
-                                    </connections>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" red="1" green="0.40784313729999999" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="trailing" secondItem="6ri-dZ-rlV" secondAttribute="trailing" constant="8" id="1RQ-21-UMO"/>
-                                <constraint firstItem="6ri-dZ-rlV" firstAttribute="top" secondItem="Rjg-N3-cnA" secondAttribute="top" constant="8" id="3gN-eb-TRG"/>
-                                <constraint firstAttribute="bottom" secondItem="6ri-dZ-rlV" secondAttribute="bottom" constant="8" id="vNK-8f-P4I"/>
-                                <constraint firstItem="6ri-dZ-rlV" firstAttribute="leading" secondItem="Rjg-N3-cnA" secondAttribute="leading" constant="8" id="y11-TH-goY"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="label" destination="6ri-dZ-rlV" id="YUR-uj-OgZ"/>
-                            </connections>
-                        </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="kRj-5r-ol2">
-                            <rect key="frame" x="0.0" y="209" width="414" height="16"/>
+                            <rect key="frame" x="0.0" y="175" width="414" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCommentCell" rowHeight="108" id="gP6-p9-cPh" userLabel="ImageCommentCell" customClass="ImageCommentCell" customModule="EssentialFeediOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="78.5" width="414" height="108"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gP6-p9-cPh" id="4yc-Ce-tE0">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
@@ -116,16 +90,9 @@
                             <action selector="refresh" destination="tvV-Zz-1d5" eventType="valueChanged" id="kNJ-a5-aMd"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <outlet property="errorView" destination="Rjg-N3-cnA" id="REu-89-YL9"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yb-Hw-CRD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Gje-YR-NAf">
-                    <connections>
-                        <action selector="hideMessageAnimated" destination="Rjg-N3-cnA" id="Wt7-Ml-gKk"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Gje-YR-NAf"/>
             </objects>
             <point key="canvasLocation" x="618.84057971014499" y="63.616071428571423"/>
         </scene>
