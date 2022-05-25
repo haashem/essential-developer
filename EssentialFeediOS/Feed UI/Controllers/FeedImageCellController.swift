@@ -12,7 +12,7 @@ import EssentialFeed
 public protocol FeedImageCellControllerDelegate {
      func didRequestImage()
      func didCancelImageRequest()
- }
+}
 
 public final class FeedImageCellController: NSObject {
     
@@ -28,7 +28,8 @@ public final class FeedImageCellController: NSObject {
     }
 }
 
-extension FeedImageCellController: CellController {
+extension FeedImageCellController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
