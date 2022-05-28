@@ -12,7 +12,7 @@ import EssentialFeed
 import EssentialFeediOS
 import EssentialApp
 
-final class FeedUIIntegrationTests: XCTestCase {
+class FeedUIIntegrationTests: XCTestCase {
     
     func test_feedview_hasTitle() {
         let (sut, _) = makeSUT()
