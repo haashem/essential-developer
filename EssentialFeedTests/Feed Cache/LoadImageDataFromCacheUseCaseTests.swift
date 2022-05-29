@@ -83,7 +83,7 @@ class LocalFeedImageDataLoaderTest: XCTestCase {
         return .failure(LocalFeedImageDataLoader.LoadError.notFound)
     }
 
-    private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWithResult expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: LocalFeedImageDataLoader, toCompleteWithResult expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
         _ = sut.loadImageData(from: anyURL(), completion: { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.success(receivedData), .success(expectedData)):
@@ -98,7 +98,7 @@ class LocalFeedImageDataLoaderTest: XCTestCase {
         })
     }
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (LocalFeedImageDataLoader, FeedImageDataStoreSpy) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (LocalFeedImageDataLoader, FeedImageDataStoreSpy) {
         let store = FeedImageDataStoreSpy()
         let sut = LocalFeedImageDataLoader(store: store)
         
