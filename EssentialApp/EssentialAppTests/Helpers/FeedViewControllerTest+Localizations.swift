@@ -24,4 +24,8 @@ extension FeedUIIntegrationTests {
         return FeedPresenter.title
     }
     
+    var commentsTitle: String {
+        return ImageCommentsPresenter.title
+    }
+    
 }

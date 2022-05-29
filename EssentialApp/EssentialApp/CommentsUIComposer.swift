@@ -20,7 +20,7 @@ final public class CommentsUIComposer {
             commentsLoader().dispatchToMainQueue()
         })
         
-        let feedController = makeFeedViewController(title: FeedPresenter.title)
+        let feedController = makeFeedViewController(title: ImageCommentsPresenter.title)
         feedController.onRefresh = presentationAdapater.loadResource
         
         presentationAdapater.presenter = LoadResourcePresenter(resourceView: FeedViewAdapter(controller: feedController, imageLoader: { _ in Empty<Data, Error>().eraseToAnyPublisher() }), loadingView: WeakRefVirtualProxy(feedController), errorView: WeakRefVirtualProxy(feedController), mapper: FeedPresenter.map)
@@ -32,7 +32,7 @@ final public class CommentsUIComposer {
         let bundle = Bundle(for: ListViewController.self)
         let storybaord = UIStoryboard(name: "Feed", bundle: bundle.self)
         let feedController = storybaord.instantiateInitialViewController() as! ListViewController
-        feedController.title = FeedPresenter.title
+        feedController.title = title
         return feedController;
     }
 }
