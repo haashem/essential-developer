@@ -15,16 +15,29 @@ final public class FeedUIComposer {
     
     private init() {}
     
-    public static func feedComposedWith(feedLoader: @escaping () -> AnyPublisher<[FeedImage], Error>, imageLoader:  @escaping (URL) -> FeedImageDataLoader.Publisher) -> ListViewController {
+    public static func feedComposedWith(
+        feedLoader: @escaping () -> AnyPublisher<[FeedImage], Error>,
+        imageLoader:  @escaping (URL) -> FeedImageDataLoader.Publisher,
+        selection: @escaping (FeedImage) -> Void = { _ in }
+    ) -> ListViewController {
         
-        let presentationAdapater = LoadResourcePresentationAdapater<[FeedImage], FeedViewAdapter>(loader: {
-            feedLoader().dispatchToMainQueue()
-        })
+        let presentationAdapater = LoadResourcePresentationAdapater<[FeedImage], FeedViewAdapter>(
+            loader: {
+                feedLoader().dispatchToMainQueue()
+            }
+        )
         
         let feedController = makeFeedViewController(title: FeedPresenter.title)
         feedController.onRefresh = presentationAdapater.loadResource
         
-        presentationAdapater.presenter = LoadResourcePresenter(resourceView: FeedViewAdapter(controller: feedController, imageLoader: { imageLoader($0).dispatchToMainQueue() }), loadingView: WeakRefVirtualProxy(feedController), errorView: WeakRefVirtualProxy(feedController), mapper: FeedPresenter.map)
+        presentationAdapater.presenter = LoadResourcePresenter(
+            resourceView: FeedViewAdapter(
+                controller: feedController,
+                imageLoader: { imageLoader($0).dispatchToMainQueue() },
+                selection: selection),
+            loadingView: WeakRefVirtualProxy(feedController),
+            errorView: WeakRefVirtualProxy(feedController),
+            mapper: FeedPresenter.map)
         
         return feedController
     }
