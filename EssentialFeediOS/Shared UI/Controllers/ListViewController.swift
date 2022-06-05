@@ -81,14 +81,14 @@ final public class ListViewController: UITableViewController, UITableViewDataSou
     
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach{ indexPath in
-            let dsp = cellController(at: indexPath)?.prefetching
+            let dsp = cellController(at: indexPath)?.dataSourcePrefetching
             dsp?.tableView(tableView, prefetchRowsAt: [indexPath])
         }
     }
     
     public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
-            let dsp = cellController(at: indexPath)?.prefetching
+            let dsp = cellController(at: indexPath)?.dataSourcePrefetching
             dsp?.tableView?(tableView, cancelPrefetchingForRowsAt: [indexPath])
         }
     }
