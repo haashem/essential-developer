@@ -62,16 +62,24 @@ final public class ListViewController: UITableViewController, UITableViewDataSou
         onRefresh?()
     }
     
-    public func display(_ cellControllers: [CellController]) {
+    public func display(_ cellControllers: [CellController]...) {
         var snapshot = NSDiffableDataSourceSnapshot<Int, CellController>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(cellControllers, toSection: 0)
+        cellControllers.enumerated().forEach{ section, cellController in
+            snapshot.appendSections([section])
+            snapshot.appendItems(cellController, toSection: section)
+        }
+        
         dataSource.apply(snapshot)
     }
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let delegate = cellController(at: indexPath)?.delegate
         delegate?.tableView?(tableView, didSelectRowAt: indexPath)
+    }
+    
+    public override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let delegate = cellController(at: indexPath)?.delegate
+        delegate?.tableView?(tableView, willDisplay: cell, forRowAt: indexPath)
     }
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
