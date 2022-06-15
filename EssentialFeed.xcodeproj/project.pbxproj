@@ -682,6 +682,7 @@
 		14DDAF44285A4B9E00C3B63C /* Image Comments API */ = {
 			isa = PBXGroup;
 			children = (
+				1468AB2E27F09CBF0033DBF4 /* ImageCommentsMapper.swift */,
 				14DDAF45285A4BC800C3B63C /* ImageCommentsEndpoint.swift */,
 			);
 			path = "Image Comments API";
@@ -758,7 +759,6 @@
 		94340170241A6DA800DECD39 /* FeedAPI */ = {
 			isa = PBXGroup;
 			children = (
-				1468AB2E27F09CBF0033DBF4 /* ImageCommentsMapper.swift */,
 				14B5549227C2827000D39ABE /* RemoteFeedImageDataLoader.swift */,
 				94340175241CE1A300DECD39 /* FeedItemMapper.swift */,
 				9478644224DBF1AB003A940A /* FeedCachePolicy.swift */,
